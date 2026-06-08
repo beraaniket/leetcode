@@ -1,17 +1,21 @@
 class Solution {
     public int[] pivotArray(int[] nums, int pivot) {
-        List<Integer> small = new ArrayList<>();
-        List<Integer> equal = new ArrayList<>();
-        List<Integer> large = new ArrayList<>();
-        List<Integer> result = new ArrayList<>();
-        for(int num:nums){
-            if(num < pivot) small.add(num);
-            else if(num == pivot) equal.add(num);
-            else large.add(num);
+        int[] result = new int[nums.length];
+        int left = 0, right = nums.length - 1;
+
+        int j = nums.length - 1;
+        for(int i = 0;i < nums.length; i++){
+            if(nums[i] < pivot){
+                result[left++] = nums[i]; 
+            }
+            if(nums[j] > pivot){
+                result[right--] = nums[j];
+            }
+            j--;
         }
-        result.addAll(small);
-        result.addAll(equal);
-        result.addAll(large);
-        return result.stream().mapToInt(Integer::intValue).toArray();
+        while(left <= right){
+            result[left++] = pivot;
+        }
+        return result;
     }
 }
