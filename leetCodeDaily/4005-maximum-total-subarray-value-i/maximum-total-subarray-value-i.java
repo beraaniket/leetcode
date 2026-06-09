@@ -3,9 +3,9 @@ class Solution {
         long max = Integer.MIN_VALUE;
         long min = Integer.MAX_VALUE;
 
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] > max) max = nums[i];
-            if(nums[i] < min) min = nums[i];
+        for(int num:nums){
+            if(num > max) max = num;
+            if(num < min) min = num;
         }
         return (max - min) * k;
     }
