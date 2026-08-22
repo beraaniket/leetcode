@@ -10,6 +10,9 @@ class Solution {
             num /= 10;
         }
         sum += product;
-        return n % sum == 0;
+        if(n % sum == 0){
+            return true;
+        }
+        return false;
     }
 }
