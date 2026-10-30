@@ -10,13 +10,13 @@ class Solution {
             adj.computeIfAbsent(u, x -> new ArrayList<>()).add(new int[]{v, wt});
         }
 
-        // result[node][count] = min cost to reach node with 'count' consecutive identical chars
+        
         int[][] result = new int[n][k + 1];
         for (int[] row : result) {
             Arrays.fill(row, Integer.MAX_VALUE);
         }
 
-        // heap holds {dist, node, count}, ordered by dist
+       
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
         result[0][1] = 0;
