@@ -1,7 +1,12 @@
 class Solution {
     public boolean canAliceWin(int n) {
-        if((n >= 10 && n < 19) || (n >= 27 && n < 34) || (n >= 40 && n < 45) || (n >= 49 && n < 53))
-            return true;
-        return false;
+        int take = 10,
+            k = 0;
+        while (n >= take) {
+            n -= take;
+            take--;
+            k++;
+        }
+        return k % 2 == 1;
     }
 }
